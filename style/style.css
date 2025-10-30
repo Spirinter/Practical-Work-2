@@ -1,0 +1,144 @@
+ body 
+{
+	background-color: #f8f9fa;
+}
+
+.studentPicture
+{
+	display: flex;
+	align-items: center;
+	gap: 80px;
+	margin: 20px 0;
+}
+
+.studentPicture studentPic
+{
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.studentImage 
+{
+	border: 1px dashed #6c757d;
+	border-radius: 8px;
+	text-align: center;
+	background-color: #f8f9fa;
+	overflow: hidden;
+	width: 180px;
+	height: 190px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: -70px;
+}
+
+.studentImage  input[type="file"]
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	cursor: pointer;
+}
+
+.studentImage  img
+{
+	width: 200px;
+	height: 150px;
+	object-fit: contain;
+}
+
+.form-section
+{
+	display: flex;
+	align-items: center;
+	gap: 60px;
+}
+
+.form-section-gender
+{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 120px;
+	margin-bottom: 20px;
+}
+
+.form-section label,
+.form-section-gender label,
+.form-section-level label,
+.form-section-department label
+{
+	min-width: 120px;
+}
+
+.form-section input,
+{
+	flex: 1;
+	padding: 5px;
+}
+
+.Gender-Option
+{
+	display:flex;
+	gap: 1px;
+}
+
+.gender-option
+{
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.form-section-level,
+.form-section-department
+{
+	display: flex;
+	align-items: center;
+	gap: 90px;
+	margin-bottom: 20px;
+}
+
+.form-control-level
+{
+	padding: 5px 10px;
+	font-size: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 200px;
+	appearance: auto;
+}
+
+.form-control-level-department
+{
+	padding: 5px 10px;
+	font-size: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 200px;
+	appearance: auto;
+}
+
+form 
+{
+	width: 60%;
+	margin: 30px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2, h4
+{
+	text-align: center;
+}
+
+.form-section
+{
+	margin-bottom: 20px;
+}

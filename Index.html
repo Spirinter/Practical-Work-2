@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical Work 2 (05DIT241155)</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style/style.css"/>
+
+</head>
+<body>
+
+<form id="studentForm" enctype="multipart/form-data">
+
+<h2>BLOOM COLLEGE</h2>
+<h4>Student Registration Form</h4>    
+	
+	<div class="studentPicture">
+	<label for="studentPic">Student Image:</label>
+		<div class="studentImage">
+			<img id="preview" src="https://via.placeholder.com/100" alt="Browse...">
+			<input type="file" accept="image/*" id="studentImage" onchange="previewImage(event)">
+		</div>
+	<small class="text-muted">(less than 5 MB)</small>
+	</div>
+	<script>
+    function previewImage(event)
+	{
+		const image = document.getElementById('preview');
+		const file = event.target.files[0];
+		if (file && file.size < 5 * 1024 * 1024)
+		{
+			image.src = URL.createObjectURL(file);
+        } 
+		else
+		{
+			alert("Please upload an image smaller than 5MB.");
+			event.target.value = "";
+        }
+    }
+	</script>
+
+    <div class="form-section">
+        <label>Student Name:</label>
+        <input type="text" id="studentName" class="form-control" placeholder="Full name" onchange="toUpperCaseField(this)">
+    </div>
+
+    <div class="form-section">
+        <label>Father’s Name:</label>
+        <input type="text" id="fatherName" class="form-control" placeholder="Father’s full name" onchange="toUpperCaseField(this)">
+    </div>
+
+    <div class="form-section">
+        <label>Mother’s Name:</label>
+        <input type="text" id="motherName" class="form-control" placeholder="Mother’s full name" onchange="toUpperCaseField(this)">
+    </div>
+
+    <div class="form-section-gender">
+		<div class="gender-label">
+			<label>Gender:</label>
+		</div>
+		<div class="Gender-Option">
+			<label class="gender-option">Male
+				<input type="radio" name="gender" value="Male">
+			</label>
+			<label class="gender-option">Female
+				<input type="radio" name="gender" value="Female">
+			</label>
+		</div>
+    </div>
+
+    <div class="form-section">
+        <label>Date of Birth:</label>
+        <input type="date" class="form-control">
+    </div>
+
+    <div class="form-section">
+        <label>Email:</label>
+        <input type="email" id="email" class="form-control" placeholder="email@xyz.com" onfocus="onEmailFocus()" onblur="onEmailBlur()">
+    </div>
+
+    <div class="form-section-level">
+        <label>Level:</label>
+        <select class="form-control-level">
+			<option>Diploma</option>
+			<option>Degree</option>
+            <option>Bachelor</option>
+            <option>Masters</option>
+            <option>PhD</option>
+        </select>
+    </div>
+
+    <div class="form-section-department">
+        <label>Department:</label>
+        <select class="form-control-department">
+            <option>Jabatan Teknologi Maklumat dan Komunikasi</option>
+            <option>Jabatan Kejuruteraan Mekanikal</option>
+            <option>Jabatan Kejuruteraan Elektrikal</option>
+            <option>Jabatan Perdagangan</option>
+			<option>Jabatan Kejuruteraan Petrokimia</option>
+        </select>
+    </div>
+
+    <div class="form-section">
+        <label>Tel/Mobile:</label>
+        <input type="tel" class="form-control" placeholder="01X-XXX-XXXX">
+    </div>
+
+    <h4 class="mt-4">Address</h4>
+
+    <div class="form-section">
+        <label>State:</label>
+        <input type="text" class="form-control" placeholder="State">
+    </div>
+
+    <div class="form-section">
+        <label>City:</label>
+        <input type="text" class="form-control" placeholder="City">
+    </div>
+
+    <div class="form-section">
+        <label>Postcode:</label>
+        <input type="text" class="form-control" placeholder="Postcode">
+    </div>
+
+    <div class="text-center mt-3">
+        <button type="button" class="btn btn-primary" onclick="submitForm()">Register</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        Your details have been saved!
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // i. onBlur event
+    function onEmailBlur() {
+        console.log("Email field lost focus");
+    }
+
+    // ii. onFocus event
+    function onEmailFocus() {
+        console.log("Email field is focused");
+    }
+
+    // iii. onChange event (convert to uppercase)
+    function toUpperCaseField(field) {
+        field.value = field.value.toUpperCase();
+    }
+
+    // iv. Show Bootstrap modal on submission
+    function submitForm() {
+        const modal = new bootstrap.Modal(document.getElementById('successModal'));
+        modal.show();
+    }
+</script>
+
+</body>
+</html>
